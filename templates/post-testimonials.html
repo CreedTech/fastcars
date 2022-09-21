@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head_title %}Post Testimonial |Fast Cars{% endblock  %}
+{% block content %}
+
+<!--Start breadcrumb area-->
+<section
+  class="breadcrumb-area"
+  style="background-image: url(/static/images/banner_1920_02.png)"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumbs">
+          <h1 style="color: black;">Post Testimonial</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb-botton">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="left">
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="active">Post Testimonial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End breadcrumb area-->
+
+<!-- Start Testimonial area -->
+<section class="checkout-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="form billing-info">
+                  <div class="sec-title pdb-50">
+                      <h1>Post Testimonial</h1>
+                      <span class="border"></span>
+                  </div>
+                  <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div class="field-label">Your Name*</div>
+                              <div class="field-input">
+                                {{post_testimonials.name|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Your Name"}}
+                                <span class="text-danger">{{post_testimonials.name.errors}}</span>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="field-label">Your Location*</div>
+                              <div class="field-input">
+                                {{post_testimonials.location|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Your Location"}}
+                                <span class="text-danger">{{post_testimonials.location.errors}}</span>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="field-label">Your Image*</div>
+                              <div class="field-input">
+                                {{post_testimonials.image|add_class:"form-control"}}
+                                <span class="text-danger">{{post_testimonials.image.errors}}</span>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                              <div class="field-label">Your Comment*</div>
+                              <div class="field-input">
+                                {{post_testimonials.comment|add_class:"form-control"|attr:"type:text"|attr:"placeholder:Your Comments"}}
+                                <span class="text-danger">{{post_testimonials.comment.errors}}</span>
+                              </div>
+                          </div>
+                          <div class="placeorder-button text-left">
+                            <button class="thm-btn" type="submit">Post</button>
+                        </div>
+                     
+                      </div>    
+                  </form>
+              </div>    
+          </div>
+      </div>
+      
+  </div>
+</section>     
+<!-- End Testimonial area -->
+
+{% endblock content %}

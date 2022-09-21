@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Search result|Fast Cars{% endblock  %}
+{% block content %}
+
+<!--Start shop area-->
+<section class="shop-area">
+    <div class="container">
+        <div class="row">
+            <!--Start shop content-->
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 pull-right">
+                <div class="shop-content">
+                    <div class="row">
+                        <!--Start single product item-->
+                        {% if cars %}
+                        {% for car in cars  %}
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="single-product-item">
+                                <div class="img-holder">
+                                    <img src="{{car.car_photo.url}}" alt="Awesome Product Image" style="object-fit: contain; ">
+                                    <div class="overlay-style-one">
+                                        <div class="box">
+                                            <div class="content">
+                                                <a href="{% url 'core:car-details' car.slug %}"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title-holder">
+                                    <div class="top clearfix">
+                                        <div class="product-title pull-left">
+                                            <h5>{{car.car_name}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="product-value">
+                                        <h4>${{car.price}}</h4>
+                                    </div>
+                                    {% if request.user.is_authenticated %}
+                                    {% if car.booking.To_agree %}
+                                    <hr>
+                                    <h3 class="text-dark" style="text-decoration: none; color: black;">Already Booked</h3>
+                                    {% else %}
+                                    <div class="button">
+                                        <a class="thm-btn" href="{{ car.get_booking_url }}">Book</a>
+                                    </div>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+          <div class="text-center m-5 p-5">
+            <div class="single-product-item">
+
+                <h3>No Cars Available from your search result</h3>
+            </div>
+          </div>
+          {% endif %}
+                        <!--End single product item-->
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"> 
+                            <ul class="post-pagination text-center">
+                                {% if car_pages.has_previous %}
+                                <li><a href="?page={{ car_pages.previous_page_number }}"><i class="fa fa-caret-left" aria-hidden="true"></i></a></li>
+                                {% else %}
+                                <li title="No previous page"><a href="" style="pointer-events: none;" ><i class="fa fa-caret-left disabled" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% for i in car_pages.paginator.page_range %}
+                                {% if car_pages.number == i %}
+                                <li class="active"><a href="#">{{ i }}</a></li>
+                                {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+
+                                {% if car_pages.has_next %}
+                                <li><a href="?page={{ car_pages.next_page_number }}"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                                {% else %}
+                                <li title="No next page"><a href="" style="pointer-events: none;"><i class="fa fa-caret-right disabled" aria-hidden="true"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <!--End shop content-->
+            <!--Start sidebar Wrapper-->
+            <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12 pull-left">
+                <div class="sidebar-wrapper">
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Categories</h3>
+                        </div>
+                        <ul class="categories clearfix">
+                            {% for b in brand %}
+                            <li><a href="{% url 'core:product_brand' b.slug %}">{{b.brand}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!--End single sidebar-->
+                </div>    
+            </div>
+            <!--End Sidebar Wrapper-->  
+        </div>
+    </div>
+</section>
+<!--End shop area-->
+
+{% endblock content %}

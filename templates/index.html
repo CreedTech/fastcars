@@ -1,0 +1,403 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Home|Fast Cars{% endblock  %}
+{% block content %}
+
+
+<!--Start rev slider wrapper-->     
+<section class="rev_slider_wrapper style-four">
+    <div id="slider4" class="rev_slider"  data-version="5.0">
+        <ul>
+            <li data-transition="rs-20">
+                <img src="{{carousel_product_1.car_photo.url}}"  alt="" width="1920" height="855" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1">
+                
+                
+                <div class="tp-caption  tp-resizeme" 
+                    data-x="left" data-hoffset="0" 
+                    data-y="top" data-voffset="235" 
+                    data-transform_idle="o:1;"         
+                    data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" 
+                    data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" 
+                    data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" 
+                    data-splitin="none" 
+                    data-splitout="none"
+                    data-responsive_offset="on"
+                    data-start="1500">
+                    
+                    <div class="slide-content-box mar-lft">
+                        <div class="title">
+                            <h3><b>{{carousel_product_1.brand}}</b> <span>${{carousel_product_1.price}}</span></h3>
+                        </div>
+                        <h1>{{carousel_product_1.car_name}}</h1>
+                        <h2>{{carousel_product_1.description|truncatechars:70}}</h2>
+                        <div class="button">
+                            <a class="" href="{% url 'core:service' %}">Explore</a>       
+                        </div>
+                    </div>
+                    
+                </div>
+            </li>
+            <li data-transition="fade">
+                <img src="{{carousel_product_2.car_photo.url}}" alt="" width="1920" height="855" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                
+                <div class="tp-caption  tp-resizeme" 
+                    data-x="center" data-hoffset="0" 
+                    data-y="top" data-voffset="240" 
+                    data-transform_idle="o:1;"         
+                    data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" 
+                    data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" 
+                    data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" 
+                    data-splitin="none" 
+                    data-splitout="none"
+                    data-responsive_offset="on"
+                    data-start="1500">
+                    
+                    <div class="slide-content-box bgnone middle text-center">
+                        <div class="title">
+                            <h3><b>{{carousel_product_2.brand}}</b><span>${{carousel_product_2.price}}</span></h3>
+                        </div>
+                        <h1>{{carousel_product_2.car_name}}</h1>
+                        <h2>{{carousel_product_2.description|truncatechars:70}}</h2>
+                        <div class="button">
+                            <a class="" href="{% url 'core:service' %}">Explore</a>       
+                        </div>
+                    </div>
+                    
+                </div>
+            </li>
+            <li data-transition="fade">
+                <img src="{{carousel_product_3.car_photo.url}}" alt="" width="1920" height="855" data-bgposition="top center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" >
+                
+                <div class="tp-caption  tp-resizeme" 
+                    data-x="right" data-hoffset="0" 
+                    data-y="top" data-voffset="235" 
+                    data-transform_idle="o:1;"         
+                    data-transform_in="x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0.01;s:3000;e:Power3.easeOut;" 
+                    data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" 
+                    data-mask_in="x:[100%];y:0;s:inherit;e:inherit;" 
+                    data-splitin="none" 
+                    data-splitout="none"
+                    data-responsive_offset="on"
+                    data-start="1500">
+                    
+                    <div class="slide-content-box mar-right">
+                        <<div class="title">
+                            <h3><b>{{carousel_product_3.brand}}</b><span>${{carousel_product_3.price}}</span></h3>
+                        </div>
+                        <h1>{{carousel_product_3.car_name}}</h1>
+                        <h2>{{carousel_product_3.description|truncatechars:70}}</h2>
+                        <div class="button">
+                            <a class="" href="{% url 'core:service' %}">Explore</a>       
+                        </div>
+                    </div>
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!--End rev slider wrapper-->
+
+<!--Start welcome area v2-->
+<section class="welcome-area-v2 home4">
+    <div class="container">
+        <div class="row">
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item">
+                    <div class="icon-holder">
+                        <span class="flaticon-tool-2"></span>    
+                    </div>
+                    <div class="text-holder">
+                        <h3>Vehicle Inspection</h3>
+                        <p> Receive a free, fast, fair &amp; transparent price quote.</p>
+                    </div>
+                </div>
+            </div> 
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item">
+                    <div class="icon-holder">
+                        <span class="flaticon-car-repair"></span>    
+                    </div>
+                    <div class="text-holder">
+                        <h3>Booking Services</h3>
+                        <p>Provide your home or office location. Tell us when to meet you there.</p>
+                    </div>
+                </div>
+            </div> 
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item">
+                    <div class="icon-holder">
+                        <span class="flaticon-tool-3"></span>    
+                    </div>
+                    <div class="text-holder">
+                        <h3>Service Upgrades</h3>
+                        <p>No more waiting in repair shops, we will reach your destination in one call.</p>
+                    </div>
+                </div>
+            </div> 
+            <!--End single item-->
+    
+        </div>
+    </div>
+</section>
+<!--End welcome area v2-->
+
+<!--Start call to action area-->
+<section class="welcome-area home-4 sec-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-holder">
+                    <div class="sec-title">
+                        <h1>Welcome to Fast <span>CARS</span></h1>
+                        <span class="border"></span>
+                     </div> 
+                    <div class="text-box">
+                        <p>FastCars  was founded in 1998. Dealing with car problems is not only a time-consuming and frustrating experience, it is often expensive. Car owners often lack visibility regarding the quality of mechanics of price.</p>
+                        <p>We provide a full and detailed estimate of all bookings and rentings available in advance. Clients are then kept fully updated and notified of any unavoidable changes throughout the process. Delivering the highest degree of customer satisfaction through superior workmanship and service</p>
+                        <div class="name-signature">
+                            <div class="name">
+                                <h3>Lazy Programmer</h3>
+                                <p>FastCars.</p>
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+            </div> 
+            <div class="col-md-6">
+                <div class="img-holder wow slideInRight text-center">
+                    <img src="{% static 'images/Bogdan-car-570x375.jpg' %}" alt="Awesome Image">
+                    <div class="inner-content">
+                        <h3>We building a better experience for car bookers</h3>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+</section>
+<!--End call to action area-->
+
+<!--Start features area-->
+<section class="features-area">
+    <div class="container">
+        <div class="row">
+            <!--Start signle features item-->
+            <div class="col-md-4">
+                <div class="single-features-item">
+                    <div class="overlay" style="background-image: url(/static/images/resources/single-featured-bg.jpg);">
+						<div class="box">
+							<div class="box-content">
+								<a href="{% url 'core:service' %}">Read More</a>
+							</div>
+						</div>
+					</div> 
+                    <div class="iocn-box">
+                        <span class="flaticon-document"></span>    
+                    </div>
+                    <div class="text-box">
+                        <h3>Get a Moment Car</h3>
+                        <p> Receive a free, fast, fair & transparent<br> price quote.</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End signle features item-->
+            <!--Start signle features item-->
+            <div class="col-md-4">
+                <div class="single-features-item">
+                    <div class="overlay" style="background-image: url(/static/images/resources/single-featured-bg.jpg);">
+						<div class="box">
+							<div class="box-content">
+								<a href="{% url 'core:service' %}">Read More</a>
+							</div>
+						</div>
+					</div> 
+                    <div class="iocn-box">
+                        <span class="flaticon-calendar"></span>    
+                    </div>
+                    <div class="text-box">
+                        <h3>Book Appoinment</h3>
+                        <p>Provide your home or office location. Tell<br>us when to meet you there.</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End signle features item-->
+            <!--Start signle features item-->
+            <div class="col-md-4">
+                <div class="single-features-item">
+                    <div class="overlay" style="background-image: url(/static/images/resources/single-featured-bg.jpg);">
+						<div class="box">
+							<div class="box-content">
+								<a href="{% url 'core:service' %}">Read More</a>
+							</div>
+						</div>
+					</div> 
+                    <div class="iocn-box">
+                        <span class="flaticon-car-repair"></span>    
+                    </div>
+                    <div class="text-box">
+                        <h3>Get Your Dream Car For Rent</h3>
+                        <p>No more waiting in repair shops, we will<br> reach your destination in one call.</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End signle features item-->
+        </div>
+    </div>
+</section>
+<!--End features area-->
+
+<!--Start choose us area-->
+<section class="choose-us-area">
+    <div class="right-img-holder">
+        <img src="{% static 'images/PORSCHE-911-00.jpg' %}" alt="Awesome Image">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mar-left-minus">
+                <div class="img-holder">
+                    <img src="{% static 'images/5700072484_a07649ee9a_b.jpg' %}" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="text-box">
+                    <div class="sec-title">
+                        <h1>Why Choose Us</h1>
+                        <span class="border"></span>
+                    </div>
+                    <div class="more-features-content">
+                        <ul>
+                            <li>
+                                <div class="icon-holder">
+                                    <span class="flaticon-factory"></span>    
+                                </div>
+                                <div class="text-holder">
+                                    <h3>Best Material Used</h3>
+                                    <p>Denouncing pleasure and praising pain was born and  give you a complete account of the system.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-holder">
+                                    <span class="flaticon-people"></span>    
+                                </div>
+                                <div class="text-holder">
+                                    <h3>Expert Mechanics</h3>
+                                    <p>There anyone who loves or pursues or desires to obtain pain of itself and expound  teachings.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon-holder">
+                                    <span class="flaticon-medal"></span>    
+                                </div>
+                                <div class="text-holder">
+                                    <h3>Certified Detailers</h3>
+                                    <p>Take a trivials example, which of us ever seds laborious physical exercise great explorer of the truth.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End choose us area-->
+
+
+
+<!--Start repair service area-->
+<section class="repair-service-area-v2">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h1>Our Services</h1>
+            <span class="border center"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="service-carousel">
+                    <!--Start single item-->
+                    {% for item in items %}
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img src="{{ item.car_photo.url }}" alt="Awesome Image" style="object-fit: cover; height: 303px;">
+                            <div class="box">
+                                <h3>${{ item.price }}</h3>
+                                <p>Best Offer</p>
+                            </div>
+                        </div>
+                        <div class="text-holder text-center">
+                            <h3>{{ item.car_name }}</h3> 
+                            {% if request.user.is_authenticated %}
+                                    {% if item.booking.To_agree %}
+                                    <hr>
+                                    <h3 class="text-dark" style="text-decoration: none; color: black;">Already Booked</h3>
+                                    {% else %}
+                            <a href="{{ item.get_booking_url }}">Make an Appointment</a>  
+                            {% endif %}
+                                    {% endif %} 
+                        </div>    
+                    </div>
+                    {% endfor %}
+                    <!--End single item-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End repair service area-->
+
+
+  
+<!--Start testimonial area v2-->
+<section class="testimonial-area-v3" style="background-image:url(/static/images/testimonial-bg-v3.jpg);">
+    <div class="container">
+        <div class="sec-title text-center">
+            <h1>Customer Feedback</h1>
+            <span class="border center"></span>
+            {% if request.user.is_authenticated %}   
+			<a href="{% url 'core:post-testimonials' %}" class="btn text-center btn-primary btn-lg">Post Testimonials</a>
+         
+			{% endif %}
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="testimonial-carousel-3">
+                    <!--Start single item-->
+                    {% for t in testimonial %}
+                    <div class="single-item">
+                        <div class="img-holder">
+                            <img src="{{t.image.url}}" alt="Image" style="object-fit: contain; width: 80px; height: 80px;">
+                        </div>
+                        <div class="text-holder">
+                            <p>“ {{t.comment}}”</p>
+                            <h3>{{t.name}} - <span>{{t.location}}</span></h3>
+                        </div>
+                    </div>
+                    <!--End single item-->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End testimonial area v2-->
+
+<section class="footer-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="copyright-text">
+                    <marquee behavior="" direction=""><p><strong>FASTCARS - Made and Structured By Creed The Lazy Programmer(Ayodele Ayoola Temidayo). YOURS' TRULY DEV</strong></p> </marquee>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

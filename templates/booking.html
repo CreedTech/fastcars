@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block head_title %}Book Car |Fast Cars{% endblock  %}
+{% block content %}
+
+<!--Start breadcrumb area-->
+<section
+  class="breadcrumb-area"
+  style="background-image: url(/static/images/brand_banner.jpg)"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumbs">
+          <h1 style="color: black;">Booking</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb-botton">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="left">
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="active">Booking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End breadcrumb area-->
+
+<!-- booking design -->
+<section id="project-single-area">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-sm-4 col-md-4 my-2">
+                <div class="card" style="width: 100%;">
+                    <img src="{{car.car_photo.url}}" class="card-img-top" alt="...">
+                    <h3>{{car.car_name|capfirst}}</h3>
+                </div>
+            </div>
+            <!-- second -->
+            <div class="col-sm-4 col-md-4 my-2">
+                <div class="card shadow bg-dark text-warning fw-bolder" style="width: 100%;">
+                    <div class="card-header">
+                        {{car.brand}}
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Model : {{car.model|capfirst}}</li>
+                        <li class="list-group-item">Color : {{car.color|capfirst}}</li>
+                        <li class="list-group-item">Condition : {{car.condition|capfirst}}</li>
+                        <li class="list-group-item">Body style : {{car.body_style|capfirst}}</li>
+                        <li class="list-group-item">Miles : {{car.miles|capfirst}}</li>
+                        <li class="list-group-item">Doors : {{car.doors|capfirst}}</li>
+                        <li class="list-group-item">No of passenger : {{car.passengers|capfirst}}</li>
+                        <li class="list-group-item">Fuel Type : {{car.fuel_type|capfirst}}</li>
+                        <li class="list-group-item">Doors : {{car.doors|capfirst}}</li>
+                    </ul>
+                    <div class="card-footer shadow bg-dark text-warning fw-bolder text-center" style="background-color: black; color: white; padding: 20px;">
+                        Book For >>> ${{car.price|intcomma|capfirst}}
+                    </div>
+                </div>
+    
+                <!--  -->
+                
+            </div>
+            <div class="col-sm-4 col-md-4 my-2">
+    
+                <div class="form shipping-info">
+                    <div class="sec-title pdb-50">
+                        <h1>Booking Info</h1>
+                        <span class="border"></span>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="row">
+    
+                            {% csrf_token %}
+            
+                            {{ form|crispy }}
+                            <input type="submit" value="Book" class="btn text-center btn-primary btn-lg">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  -->
+
+{% endblock content %}

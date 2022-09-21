@@ -1,0 +1,231 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}About|Fast Cars{% endblock  %}
+{% block content %}
+
+<!--Start breadcrumb area-->     
+<section class="breadcrumb-area" style="background-image: url(/static/images/about-us-bar.jpg);">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-md-12">
+	            <div class="breadcrumbs">
+	                <h1 style="color: black;">About Us</h1>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+    <div class="breadcrumb-botton">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="left">
+                        <li><a href="index.html">Home</a></li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li class="active">About Us</li>
+                    </ul>   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb area--> 
+
+
+{% if abouts %}
+    
+{% for about in abouts %}
+<!--Start call to action area-->
+<section class="welcome-area sec-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-holder">
+                    <div class="sec-title">
+                        <h1>{{about.title}}</h1>
+                        <span class="border"></span>
+                     </div> 
+                    <div class="text-box">
+                        <p>{{about.text}}</p>
+                        <div class="name-signature">
+                            <div class="name">
+                                <h3>{{about.author}}</h3>
+                                <p>{{about.signature}}</p>
+                            </div>
+  
+                        </div>
+                    </div>
+                     
+                </div>
+            </div> 
+            <div class="col-md-6">
+                <div class="video-holder">
+                    <img src="{{about.video_image.url}}" alt="Awesome Video Gallery">
+                    <div class="overlay-gallery">
+                        <div class="icon-holder">
+                            <div class="icon">
+                                <a class="html5lightbox" title="FastCars Video Gallery" href="{{about.video}}"><img src="{% static 'images/icon/play-btn.png' %}" alt="Play Button"></a>   
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+               
+        </div>
+    </div>
+</section>
+<!--End call to action area-->
+
+<!--Start contact info area-->
+<section class="contact-info-area">
+    <div class="container">
+        <div class="title text-center">
+            <h2>Are you having any problems in your vehicle, don’t worry</h2>
+            <p>Contact Us! We promise we can help you! Call Now! <a style="color: black;" href="telto:{{about.number}}">{{ about.number }}</a></p>
+        </div>
+        <div class="row">
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-telephone"></span> 24/7 Customer Support</h3>
+                    </div> 
+                    <div class="text">
+                        <h1><a style="color: #233888;" href="telto:{{about.number}}">{{ about.number }}</a></h1>
+                        <p>FastCars is your ONE STOP solution bringing best car services.</p>
+                    </div>   
+                </div>
+            </div>
+            <!--End single box-->
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-clock"></span> Working Hours</h3>
+                    </div> 
+                    <ul class="working-hour">
+                        <li>Week Days : <span>09:00am - 08:00pm</span></li>
+                        <li>Saturday : <span>10:00am - 06:00pm</span></li>
+                        <li>Sunday : <span><b>Closed</b></span></li>
+                    </ul>  
+                </div>
+            </div>
+            <!--End single box-->
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-telephone"></span> 24/7 Customer Support</h3>
+                    </div> 
+                    <div class="placeorder-button text-left">
+                        <button class="thm-btn"><a href="{% url 'core:contact' %}" style="color:black;">Contact Us</a></button>
+                    </div>
+                </div>
+            </div>
+            <!--End single box-->
+        </div>
+    </div>
+</section> 
+<!--End contact info area-->
+{% endfor %}
+{% else %}
+
+<!--Start call to action area-->
+<section class="welcome-area sec-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-holder">
+                    <div class="sec-title">
+                        <h1>Welcome to Fast <span>CARS</span></h1>
+                        <span class="border"></span>
+                     </div> 
+                    <div class="text-box">
+                        <p>Fast CARS  was founded in 1998. Dealing with car problems is not only a time-consuming and frustrating experience, it is often expensive. Car owners often lack visibility regarding the quality of mechanics of price.</p>
+                        <p>We provide a full and detailed estimate of all restoration and repair projects in advance. Clients are then kept fully updated and notified of any unavoidable changes throughout the process. Delivering the highest degree of customer satisfaction through superior workmanship and service</p>
+                        <div class="name-signature">
+                            <div class="name">
+                                <h3>Lazy Programmer</h3>
+                                <p>Fast CARS.</p>
+                            </div>
+  
+                        </div>
+                    </div>
+                     
+                </div>
+            </div> 
+            <div class="col-md-6">
+                <div class="video-holder">
+                    <img src="{% static 'images/resources/video-gallery.jpg' %}" alt="Awesome Video Gallery">
+                    <div class="overlay-gallery">
+                        <div class="icon-holder">
+                            <div class="icon">
+                                <a class="html5lightbox" title="FastCars Video Gallery" href="https://www.youtube.com/watch?v=nFtbf4prm78"><img src="{% static 'images/icon/play-btn.png' %}" alt="Play Button"></a>   
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+               
+        </div>
+    </div>
+</section>
+<!--End call to action area-->
+
+<!--Start contact info area-->
+<section class="contact-info-area">
+    <div class="container">
+        <div class="title text-center">
+            <h2>Are you having any problems in your vehicle, don’t worry</h2>
+            <p>Contact Us! We promise we can help you! Call Now! +234 91 371 04825</p>
+        </div>
+        <div class="row">
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-telephone"></span> 24/7 Customer Support</h3>
+                    </div> 
+                    <div class="text">
+                        <h1>+2349137104825</h1>
+                        <p>FastCars is your ONE STOP solution bringing best car services.</p>
+                    </div>   
+                </div>
+            </div>
+            <!--End single box-->
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-clock"></span> Working Hours</h3>
+                    </div> 
+                    <ul class="working-hour">
+                        <li>Week Days : <span>09:00am - 08:00pm</span></li>
+                        <li>Satday : <span>10:00am - 06:00pm</span></li>
+                        <li>Sunday : <span><b>Closed</b></span></li>
+                    </ul>  
+                </div>
+            </div>
+            <!--End single box-->
+            <!--Start single box-->
+            <div class="col-md-4">
+                <div class="single-box">
+                    <div class="top">
+                        <h3><span class="flaticon-telephone"></span> 24/7 Customer Support</h3>
+                    </div> 
+                    <div class="placeorder-button text-left">
+                        <button class="thm-btn"><a href="{% url 'core:contact' %}">Contact Us</a></button>
+                    </div>
+                </div>
+            </div>
+            <!--End single box-->
+        </div>
+    </div>
+</section> 
+<!--End contact info area-->
+
+{% endif %}
+
+
+
+
+{% endblock content %}

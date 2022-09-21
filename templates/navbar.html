@@ -1,0 +1,106 @@
+{% load static %}
+<!--Start mainmenu area-->
+<section class="mainmenu-area stricky">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 clearfix">
+        <!--Start logo-->
+        <div class="logo pull-left">
+          <a href="index.html">
+            <!-- <img src="images/resources/logo.png" alt="Awesome Logo"> -->
+            <h1>FAST CARS</h1>
+          </a>
+        </div>
+        <!--End logo-->
+        <!--Start mainmenu-->
+        <nav class="main-menu pull-left">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse clearfix">
+            <ul class="navigation clearfix">
+              <li><a href="{% url 'core:home' %}">Home</a></li>
+              <li class="dropdown">
+                <a href="" style="pointer-events: none;">Vehicles</a>
+                <ul>
+                  <li><a href="{% url 'core:service' %}">View All Cars</a></li>
+                  {% for b ,count in brand_count %}
+                  <li>
+                    <a href="{% url 'core:product_brand' b.slug %}">{{b.brand}}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              <li><a href="{% url 'core:about' %}">About Us</a></li>
+              <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+              {% if request.user.is_authenticated %} 
+              {% if request.user.is_staff %}
+              <li class="dropdown">
+                <a href="" style="pointer-events: none;">Dashboard</a>
+                <ul>
+                  <li>
+                    <a href="\admin">Admin</a>
+                  </li>
+                  <li><a href="{% url 'core:brand' %}">Brands</a></li>
+                </ul>
+              </li>
+              {% endif %}
+              <li class="dropdown">
+                <a href="" style="pointer-events: none;">My Account</a>
+                <ul>
+                  <li>
+                    <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                  </li>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </li>
+              {% else %}
+              <li class="dropdown">
+                <a href="{% url 'register' %}">Login/Signup</a>
+                <ul>
+                  <li><a href="{% url 'register' %}">Register</a></li>
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+        <!--End mainmenu-->
+        <!--Start mainmenu right box-->
+        <div class="mainmenu-right-box pull-right">
+          <div class="outer-search-box">
+            <div class="seach-toggle"><i class="fa fa-search"></i></div>
+            <ul class="search-box">
+              <li>
+                <form method ="GET" action="{% url 'core:search' %}">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input
+                      type="search"
+                      name="search"
+                      placeholder="Search Here"
+                      required
+                    />
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--End mainmenu right box-->
+      </div>
+    </div>
+  </div>
+</section>
+<!--End mainmenu area-->

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Brands |Fast Cars{% endblock  %}
+{% block content %}
+
+<!--Start breadcrumb area-->     
+<section class="breadcrumb-area" style="background-image: url(/static/images/brand_banner.jpg);">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-md-12">
+	            <div class="breadcrumbs">
+	                <h1 style="color: black;">Brands</h1>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+    <div class="breadcrumb-botton">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="left">
+                        <li><a href="{% url 'core:home' %}">Home</a></li>
+                        <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                        <li class="active">Brands</li>
+                    </ul>   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb area--> 
+
+
+<!--Start cart area-->
+<section class="cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-7 col-sm-7 col-xs-12">
+                <div class="sidebar-wrapper">
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <form class="search-form" action="{% url 'core:create_brand' %}" method="POST">
+                            {% csrf_token %}
+							<input type="text" name="brand" placeholder="Create new brand">
+							<button type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button>
+						</form>
+                    </div>
+            </div>
+        </div>
+        {% if brands %}
+            <div class="col-md-12">
+                <div class="table-outer">
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+                                <th class="prod-column">S/N</th>
+                                <th>&nbsp;</th>
+                                <th class="prod-column">Brand Name</th>
+                                <th>&nbsp;</th>
+                                <th class="prod-column">Update</th>
+                                <th>&nbsp;</th>
+                                <th class="prod-column">Delete</th>
+                                <th>&nbsp;</th>
+
+                            </tr>    
+                        </thead>
+                        <tbody>
+                            {% for brand in brands %}
+                            <tr>
+                                <td class="price " colspan="2" >{{ forloop.counter }}</td>
+                                <td class="price " colspan="2" ><a href="{% url 'core:product_brand' brand.slug %}" style="color: grey;">{{brand.brand}}</a></td>
+                                <td class="price " colspan="2" ><a href="{% url 'core:brand_update' brand.id %}" style="color: grey;"><i class="fa fa-edit"></i></a></td>
+                                <td class="price " colspan="2" ><a href="{% url 'core:delete_brand' brand.id %}" style="color: grey;"><i class="fa fa-trash"></i></a></td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>    
+                    </table>
+                </div>
+            </div>
+            
+        <div class="row">
+            <div class="col-md-12"> 
+                <ul class="post-pagination text-center">
+                    {% if car_pages.has_previous %}
+                    <li><a href="?page={{ car_pages.previous_page_number }}"><i class="fa fa-caret-left" aria-hidden="true"></i></a></li>
+                    {% else %}
+                    <li title="No previous page"><a href="" style="pointer-events: none;" ><i class="fa fa-caret-left disabled" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% for i in car_pages.paginator.page_range %}
+                    {% if car_pages.number == i %}
+                    <li class="active"><a href="#">{{ i }}</a></li>
+                    {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if car_pages.has_next %}
+                    <li><a href="?page={{ car_pages.next_page_number }}"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                    {% else %}
+                    <li title="No next page"><a href="" style="pointer-events: none;"><i class="fa fa-caret-right disabled" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div> 
+        </div>
+        {% else %}
+        <div class="text-center m-5 p-5 col-md-12">
+          <div class="single-product-item">
+
+              <h3>No Brands Available</h3>
+          </div>
+        </div>
+        {% endif %}
+    </div>
+</section>         
+<!--End cart area-->
+
+
+{% endblock content %}

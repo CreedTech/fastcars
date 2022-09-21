@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block head_title %}Contact us|Fast Cars{% endblock  %}
+{% block content %}
+
+
+
+<!--Start contact map area-->
+<section class="contact-map-area">
+    <div class="container-fluid">
+        <div class="google-map-inner">
+            <div 
+                class="google-map" 
+                id="contact-google-map" 
+                data-map-lat="7.135798" 
+                data-map-lng="3.3208912" 
+                data-icon-path="/static/images/resources/map-marker.png" 
+                data-map-title="Nigeria, Lagos" 
+                data-map-zoom="12" 
+                data-markers='{
+                    "marker-1": [7.135798, 3.3208912, "<h4>Head Office</h4><p>22 Old Savannah Road, Quarry Road, Abeokuta, Nigeria</p>"]
+                }'>
+            </div>
+        </div>  
+    </div>
+</section>
+<!--End contact map area-->
+
+{% if contact_info %}
+<!--Start contact area-->
+{% for c in contact_info %}
+<section class="get-touch-area">
+    <div class="container">
+        <div class="row">
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-magnifying-glass"></span>    
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Visit Our Place</h3>
+                        <span class="border"></span>
+                        <p>22 Old Savannah Road<br> Abeokuta, Nigeria</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-telephone"></span>
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Quick Contact</h3>
+                        <span class="border"></span>
+                        <p>Ph: <a style="color: #848484;" href="telto:{{c.number}}">{{c.number}}</a><br> Email: <a style="color: #848484;" href="mailto:{{c.email}}">{{c.email}}</a></p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-transport"></span>    
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Book - Cars</h3>
+                        <span class="border"></span>
+                        <p>We have Car Booking service, our teams<br>are ready to help you 24/7.</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->           
+        </div>
+    </div>
+</section>
+{% endfor %}
+<!--End contact area-->
+{% else %}
+<!--Start contact area-->
+<section class="get-touch-area">
+    <div class="container">
+        <div class="row">
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-magnifying-glass"></span>    
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Visit Our Place</h3>
+                        <span class="border"></span>
+                        <p>22 Old Savannah Road<br> Abeokuta, Nigeria</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-telephone"></span>
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Quick Contact</h3>
+                        <span class="border"></span>
+                        <p>Ph: <a style="color: #848484;" href="telto:+2349137104825">+234 91 371 04825</a><br> Email: <a style="color: #848484;" href="mailto:ayodeleayoolaoke4@gmail.com">ayodeleayoolaoke4@gmail.com</a></p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->
+            <!--Start single item-->
+            <div class="col-md-4">
+                <div class="single-item hvr-grow-shadow text-center">
+                    <div class="icon-holder">
+                        <span class="flaticon-transport"></span>    
+                    </div> 
+                    <div class="text-holder">
+                        <h3>Book - Cars</h3>
+                        <span class="border"></span>
+                        <p>We have Car Booking service, our teams<br>are ready to help you 24/7.</p>
+                    </div>  
+                </div>
+            </div>
+            <!--End single item-->           
+        </div>
+    </div>
+</section>
+<!--End contact area-->
+{% endif %}
+  
+<!--Start contact form area-->
+<section class="contact-form-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="inner-content">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="contact-form">
+                            <div class="sec-title">
+                                <h1>Send Message Us</h1>
+                                <span class="border"></span>
+                            </div>
+                            <form id="contact-form" name="contact_form" class="default-form" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{contact.name|add_class:""|attr:"type:text"|attr:"placeholder:Your Name"}}
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{contact.email|add_class:""|attr:"type:email"|attr:"placeholder:Your Email"}}
+                                    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{contact.subject|add_class:""|attr:"type:text"|attr:"placeholder:Subject"}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        {{contact.message|add_class:""|attr:"type:textarea"|attr:"placeholder:Your Message..."}}
+                                        
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                        <button class="thm-btn bgclr-1" type="submit" data-loading-text="Please wait...">send message</button>
+                                    </div>
+                                </div>
+                            </form>  
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <div class="contact-form-right clearfix">
+                            <div class="sec-title">
+                                <h1>Working Hours</h1>
+                                <span class="border"></span>
+                            </div>
+                            <ul class="working-hours">
+                                <li>Monday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Tuesday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Wednesday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Thursday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Friday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Saturday: <span>9:30 am - 6.00 pm</span></li>
+                                <li>Sunday: <span class="closed">Closed</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End contact form area-->
+
+{% endblock content %}

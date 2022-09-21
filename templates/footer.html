@@ -1,0 +1,126 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!--Start footer area-->  
+<footer class="footer-area">
+    <div class="container">
+        <div class="row">
+            <!--Start single footer widget-->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="single-footer-widget martop-minus pd-bottom50">
+                    <div class="footer-logo">
+                        <a href="index.html">
+                            <!-- <img src="images/footer/footer-logo.png" alt="Awesome Footer Logo"> -->
+                            <h1>FAST CARS</h1>
+                        </a>
+                    </div>
+                    <div class="our-info">
+                        <p>Fast Cars  was founded in 1998. Delivering the highest degree of customer satisfaction through superior workmanship and service. Car owners often lack visibility regarding the quality and price.</p>
+                        <a class="thm-btn" href="{% url 'core:contact' %}">Contact Us</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <!--End single footer widget-->
+
+            <!--Start single footer widget-->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="single-footer-widget pd-bottom50">
+                    <div class="title">
+                        <h3>Get In Contact</h3>
+                    </div>
+                    <ul class="footer-contact-info">
+                        <li>
+                            <div class="icon-holder">
+                                <span class="flaticon-maps-and-flags"></span>
+                            </div>
+                            <div class="text-holder">
+                                <h5>24, Adegboyeba street, Asero Estate, Abeokuta, Nigeria</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-holder">
+                                <span class="flaticon-phone-receiver"></span>
+                            </div>
+                            <div class="text-holder">
+                                <h5><a style="color: #C1C2C7;" href="telto:+2349137104825">+234 91 371 04825</a></h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-holder">
+                                <span class="flaticon-envelope"></span>
+                            </div>
+                            <div class="text-holder">
+                                <h5><a style="color: #C1C2C7;" href="mailto:ayodeleayoolaoke4@gmail.com">ayodeleayoolaoke4@gmail.com</a></h5>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <!--Start single footer widget-->
+            <!--Start single footer widget-->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="single-footer-widget mar-bottom">
+                    <div class="title">
+                        <h3>Working Hours</h3>
+                    </div>
+                    <ul class="working-hours">
+                        <li>Monday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Tuesday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Wednesday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Thursday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Friday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Saturday: <span>9:30 am - 6.00 pm</span></li>
+                        <li>Sunday: <span class="closed">Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!--End single footer widget-->
+            <!--Start single footer widget-->
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="single-footer-widget clearfix">
+                    <div class="title">
+                        <h3>Subscribe To Our Newsletter</h3>
+                    </div>
+                    <div class="contact-info-area">
+                        <div class="single-box" style="border: none; padding: 0px;">
+                            <div class="newsletter-form">
+                                <form method="POST">
+                                    {%csrf_token%}
+                                    {{subform.email|add_class:"form-control"|attr:"type:email"|attr:"placeholder:Enter your email"}}
+                                    <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                </form>
+                                <p>* Your Mail is Fully Protected.</p>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End single footer widget-->
+        </div>
+    </div>
+</footer>   
+<!--End footer area-->
+
+<!--Start footer bottom area-->
+<section class="footer-bottom-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="copyright-text">
+                    <p>2022 <a href="#">Lazy Programmer</a>, All Right Reserved</p> 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <ul class="footer-social-links">
+                    <li><a href="https://facebook.com/ayoolaoke.96" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/techyy_ayo" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="mailto:ayodeleayoolaoke4@gmail.com"><i class="fa fa-google"></i></a></li>
+                    <li><a href="https://linkedin.com/in/ayodele-ayoola-78a5341b2" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End footer bottom area-->

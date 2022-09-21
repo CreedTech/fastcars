@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %} 
+{% block head_title %} Details | FastCars {% endblock %} 
+{% block content %}
+
+<!--Start breadcrumb area-->
+<section
+  class="breadcrumb-area"
+  style="background-image: url(/static/images/brand_banner.jpg)"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="breadcrumbs">
+          <h1 style="color: black;">{{details.car_name}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb-botton">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="left">
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+            <li class="active">{{details.car_name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End breadcrumb area-->
+
+<!--Start project single area-->
+<section id="project-single-area">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-7">
+            <div class="single-project-item">
+                <div class="img-holder">
+                    <img src="{{details.car_photo.url}}" alt="Awesome Image" style="object-fit: contain; height: 500px; width: 770px;">
+                </div> 
+            </div>
+             
+          </div>
+          <div class="col-md-5">
+              <div class="project-info">
+                  <div class="sec-title">
+                      <h2>Informations</h2>
+                      <span class="border"></span>
+                  </div>
+                  <!-- <p>{{details.description}}</p> -->
+                  <ul class="project-info-list">
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span>Name</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>{{details.car_name}}</p>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-folder-open" aria-hidden="true"></i>
+                              <span>Category</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>{{details.brand}}</p>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                              <span>Date</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>{{details.created_date}}</p>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-wrench" aria-hidden="true"></i>
+                              <span>Price</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>$ {{details.price}}</p>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-wrench" aria-hidden="true"></i>
+                              <span>Color</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>{{details.color}}</p>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="icon-holder pull-left">
+                              <i class="fa fa-wrench" aria-hidden="true"></i>
+                              <span>Model</span>
+                          </div>
+                          <div class="text-holder pull-right">
+                              <p>{{details.model}}</p>
+                          </div>
+                      </li>
+                     
+                    </ul>
+                    <div class="rent">
+                      {%if request.user.is_authenticated%}
+                      {%if car.booking.To_agree %}
+                      <a href="#" class="text-dark" style="text-decoration: none;">Already Booked</a>
+                      {%else%}
+                      <div class="single-shop-content">
+                        <div class="content-box">
+                          <div class="addto-cart-box clearfix">
+                            <button class="thm-btn addtocart" type="submit"><a href="{{ details.get_booking_url }}">Book now</a></button>
+                        </div>
+                        </div>
+                      </div>
+                      {% endif %}
+                      {% endif %}
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="project-description">
+                  <p>This formal living room not only needed a focal point but color and style too. Using a high contrast palette of cool grey and blue against the warm cream and wood tones created a dramatic, yet inviting place for lounging and entertaining. Transitional lighting and furniture complete this beautiful space. and Notice this room’s natural feel – the wide planked espresso stained highlighted by a silk and wool rug that mimics the feeling of sand.</p>
+                   
+                  <p>Using a high contrast palette of cool grey and blue against the warm cream and wood tones created a dramatic, yet inviting place for lounging and entertaining. Transitional lighting and beautiful space. and Notice this room’s natural feel.</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!--End project single area-->    
+
+
+{% endblock content %}
